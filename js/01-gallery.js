@@ -32,7 +32,7 @@ function onGalleryClickHandler(e) {
   const instance = basicLightbox.create(
     `
   <div class="modal">
-    <img class="modal-img" src="${e.target.dataset.source}">
+    <img class="modal-img" src="${e.target.dataset.source}" loading="lazy">
   </div>
 `,
     {
