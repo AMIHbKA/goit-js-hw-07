@@ -42,3 +42,15 @@
 .gallery__link:hover {
   cursor: zoom-in;
 }
+
+/* my styles for img modal */
+.modal-img {
+  display: block;
+  margin: auto;
+  max-width: 98%;
+  max-height: 98%;
+}
+
+ul.gallery img {
+  display: block;
+}
