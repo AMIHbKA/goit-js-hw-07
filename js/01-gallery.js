@@ -12,7 +12,7 @@ const createGalleryItems = (galleryItems) =>
         original,
         description,
       }) => `<div class="gallery__item"><a class="gallery__link" href="${original}"><img
-      class="gallery__image" src="${preview}" data-source="${original}" alt="${description}"/></a></div>`
+      class="gallery__image" src="${preview}" data-source="${original}" alt="${description}" loading="lazy" /></a></div>`
     )
     .join("");
 
@@ -32,7 +32,7 @@ function onGalleryClickHandler(e) {
   const instance = basicLightbox.create(
     `
   <div class="modal">
-    <img class="modal-img" src="${e.target.dataset.source}" loading="lazy">
+    <img class="modal-img" src="${e.target.dataset.source}">
   </div>
 `,
     {
