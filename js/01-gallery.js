@@ -29,29 +29,30 @@ function onGalleryClickHandler(e) {
     return;
   }
 
-  const instance = basicLightbox.create(
-    `
+  instance.show(
+    () => (document.querySelector(".modal-img").src = e.target.dataset.source)
+  );
+}
+
+const instance = basicLightbox.create(
+  `
   <div class="modal">
-    <img class="modal-img" src="${e.target.dataset.source}">
+    <img class="modal-img" src="">
   </div>
 `,
-    {
-      onShow: (instance) => {
-        window.addEventListener("keydown", onEscKeyPress);
-      },
-      onClose: (instance) => {
-        window.removeEventListener("keydown", onEscKeyPress);
-      },
-    }
-  );
-
-  instance.show();
-
-  // Честно говоря мне такой вариант не очень нравится, но он работает. Очень бы хотелось узнать как правильно и красиво сделать закрытие по нажатию Esc
-  function onEscKeyPress(e) {
-    if (e.code.toLowerCase() !== "escape") {
-      return;
-    }
-    instance.close();
+  {
+    onShow: (instance) => {
+      window.addEventListener("keydown", onEscKeyPress);
+    },
+    onClose: (instance) => {
+      window.removeEventListener("keydown", onEscKeyPress);
+    },
   }
+);
+
+function onEscKeyPress(e) {
+  if (e.code.toLowerCase() !== "escape") {
+    return;
+  }
+  instance.close();
 }
